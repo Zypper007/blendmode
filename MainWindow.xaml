@@ -1,0 +1,84 @@
+﻿<Window x:Class="blendmode.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:blendmode"
+        mc:Ignorable="d"
+        Title="BlendMode" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Column="0" Grid.Row="0">
+            <Label DockPanel.Dock="Left" Content="Źródło   " FontWeight="Bold"/>
+            <TextBlock x:Name="img1Description"/>
+        </DockPanel>
+
+        <DockPanel Grid.Column="1" Grid.Row="0">
+            <Label DockPanel.Dock="Left" Content="Wynik   " FontWeight="Bold"/>
+            <TextBlock x:Name="img2Description"/>
+        </DockPanel>
+
+        <DockPanel Grid.Column="2" Grid.Row="0">
+            <Label DockPanel.Dock="Left" Content="Maska   " FontWeight="Bold"/>
+            <TextBlock x:Name="img3Description"/>
+        </DockPanel>
+
+        <Border Grid.Column="0" Grid.Row="1" Margin="0 20" BorderBrush="Gray" BorderThickness="1" Padding="10">
+            <Image x:Name="img1" />
+        </Border>
+        
+        <Border Grid.Column="1" Grid.Row="1" Margin="0 20" BorderBrush="Gray" BorderThickness="1" Padding="10">
+            <Image x:Name="img2" />
+        </Border>
+        
+        <Border Grid.Column="2" Grid.Row="1" Margin="0 20" BorderBrush="Gray" BorderThickness="1" Padding="10">
+            <Image x:Name="img3" />
+        </Border>
+
+        <Button x:Name="open1" Content="Otwórz plik" Grid.Column="0" Grid.Row="2" Click="open_Click"/>
+
+        <Grid  Grid.Column="1" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <DockPanel>
+                <Label DockPanel.Dock="Left" Content="Alfa"/>
+                <Slider x:Name="AlfaSlider" Maximum="255" Minimum="0" TickFrequency="1" Value="128" Thumb.DragCompleted="AlfaSlider_DragCompleted"/>
+            </DockPanel>
+            
+            <ComboBox Name="combo" Grid.Row="1" SelectionChanged="combo_SelectionChanged" IsEnabled="False">
+                <ComboBoxItem x:Uid="None">Brak</ComboBoxItem>
+                <ComboBoxItem x:Uid="Additive">Suma</ComboBoxItem>
+                <ComboBoxItem x:Uid="Substractive">Odejmowanie</ComboBoxItem>
+                <ComboBoxItem x:Uid="Difference">Różnica</ComboBoxItem>
+                <ComboBoxItem x:Uid="Multiplay">Mnożenie</ComboBoxItem>
+                <ComboBoxItem x:Uid="Screen">Mnożenie odwrotności</ComboBoxItem>
+                <ComboBoxItem x:Uid="Negation">Negacja</ComboBoxItem>
+                <ComboBoxItem x:Uid="Darken">Ciemniejsze</ComboBoxItem>
+                <ComboBoxItem x:Uid="Lighten">Jaśniejsze</ComboBoxItem>
+                <ComboBoxItem x:Uid="Exclusion">Wyłączenie</ComboBoxItem>
+                <ComboBoxItem x:Uid="Overlay">Nakład</ComboBoxItem>
+                <ComboBoxItem x:Uid="HardLight">Ostre światło</ComboBoxItem>
+                <ComboBoxItem x:Uid="SoftLight">Łagodne światło</ComboBoxItem>
+                <ComboBoxItem x:Uid="ColorDoge">Rozcieńczenie</ComboBoxItem>
+                <ComboBoxItem x:Uid="ColorBurn">Wypalenie</ComboBoxItem>
+                <ComboBoxItem x:Uid="Reflect">Reflect mode</ComboBoxItem>
+                <ComboBoxItem x:Uid="Transparency">Przezroczystość</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+
+        <Button x:Name="open2" Content="Otwórz plik" Grid.Column="2" Grid.Row="2" Click="open_Click"/>
+    </Grid>
+</Window>
